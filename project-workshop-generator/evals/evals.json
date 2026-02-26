@@ -1,0 +1,40 @@
+{
+  "skill_name": "project-workshop-generator",
+  "evals": [
+    {
+      "id": 1,
+      "name": "agnostic-check-js",
+      "prompt": "Analyze the current repository and generate a 2-hour workshop. Make sure you don't assume any tech stack until you've checked the project files.",
+      "expected_output": "A workshop that correctly identifies the current tech stack without having it hardcoded in the skill.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "video-deck-agnostic",
+      "prompt": "Create a Remotion video presentation for this project. The slides should be based on the actual components and goals you find in the README and package.json.",
+      "expected_output": "A Remotion script with slides dynamically titled after the project's actual features.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "missing-readme-fallback",
+      "prompt": "Generate a workshop for this repo. There is no README.md.",
+      "expected_output": "The skill does NOT generate a workshop. Instead, it asks the user to provide: project name, goals, target audience, and main features before proceeding.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "multilanguage-detection",
+      "prompt": "Analizza il repository e genera un workshop completo. Lingua: Italiano.",
+      "expected_output": "The full workshop — including module titles, section headers, exercises, and all copy — is generated in Italian.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "duration-constraint",
+      "prompt": "Generate a 45-minute workshop for this project. Be concise and skip optional sections.",
+      "expected_output": "The workshop respects the time constraint: each module has an estimated duration label, the total sums to ~45 minutes, and deep-dive sections are marked as optional.",
+      "files": []
+    }
+  ]
+}
