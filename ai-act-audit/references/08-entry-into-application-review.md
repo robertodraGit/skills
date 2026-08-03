@@ -1,0 +1,13 @@
+# 11. Entry into application
+
+**(429)** According to Article 113 AI Act, Article 5 AI Act applies as from 2 February 2025. The prohibitions in that provision will apply in principle to all AI system regardless of whether they were placed on the market or put into service before or after that date.244
+
+**(430)** At the same time, the chapters on governance and penalties will become applicable on 2 August 2025. Consequently, the provisions on penalties for non-compliance with the prohibitions in Article 5 AI Act will not apply before 2 August 2025. In this interim period, there will also be no market surveillance authorities to monitor whether the prohibitions are being properly complied with.
+
+**(431)** Nevertheless, even in this interim period, the prohibitions are fully applicable and mandatory for providers and deployers of AI systems. Those operators should therefore take necessary measures to ensure that they do not place on the market, put into service or use AI systems that could constitute prohibited practices under Article 5 AI Act. Even if the provisions on monitoring and fines do not apply until a later date, the prohibitions themselves have direct effect and thus enable affected parties to enforce them in national courts and request interim injunctions against the prohibited practices.
+
+# 12. Review and update of the Commission guidelines
+
+**(432)** These Guidelines constitute a first interpretation with practical examples of the prohibitions in Article 5 AI Act. The Commission will provide additional support to operators and authorities how to understand the prohibitions and collect further practical use cases on an ongoing basis with input from providers and deployers of AI systems, the AI Board and other relevant stakeholders.
+
+**(433)** The Commission will review these Guidelines as soon as this is necessary in view of practical experience gained in the implementation of the prohibitions and the pace of technological, societal, and regulatory developments in this area. This also includes any relevant experience from market surveillance enforcement actions and interpretations given by the CJEU on the prohibitions and other provisions of the AI Act examined in these Guidelines. During such a review, the Commission may decide to withdraw or amend these Guidelines. The Commission encourages providers and deployers of AI systems, national market surveillance authorities through the AI Board, the AI Advisory forum, the research community, and civil society organisations to contribute to this process by responding to future calls for public consultation.

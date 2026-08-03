@@ -1,81 +1,53 @@
-# 🎓 project-workshop-generator
+# skills
 
-> A universal AI skill that transforms any codebase into a structured, 
-> ready-to-deliver workshop — with Markdown output and a Remotion video deck.
-
-## What it does
-
-Install this skill once and any supported AI agent (Cursor, Claude Code, Codex, etc.)
-will be able to analyze a repository and automatically generate:
-
-- A **5-module workshop** (Module 0–4) tailored to the actual stack found in the repo
-- A **Remotion video presentation** (`workshop-video.tsx`) with animated slides
-- **Multilingual output**: defaults to the language of the user's prompt or README
-
-## Install
+> Agent skills by [@robertodraGit](https://github.com/robertodraGit) — install any of them with one command, in any [skills.sh](https://skills.sh)-compatible agent.
 
 ```bash
-npx skills add https://github.com/robertodraGit/workshop-generator --skill project-workshop-generator
+npx skills add robertodraGit/skills --skill <skill-name>
 ```
 
-## Quick start
+Works with Claude Code, Cursor, Codex, GitHub Copilot, Gemini CLI, Cline, Windsurf, Amp and every other agent supported by the [`skills` CLI](https://github.com/vercel-labs/skills).
 
-Once installed, just tell your agent:
+## Skills
+
+| Skill | What it does | Install |
+| --- | --- | --- |
+| [**ai-act-audit**](./ai-act-audit) | Audits a codebase, product or AI system against the **prohibited practices** of the EU AI Act (Art. 5, Reg. (EU) 2024/1689), grounded in the full text of the European Commission Guidelines C(2025) 5052. Outputs a structured, paragraph-cited compliance report. | `npx skills add robertodraGit/skills --skill ai-act-audit` |
+| [**project-workshop-generator**](./project-workshop-generator) | Turns any repository into a 5-module onboarding workshop (Markdown) plus an animated Remotion slide deck. Stack-agnostic and multilingual. | `npx skills add robertodraGit/skills --skill project-workshop-generator` |
+
+Install everything at once:
+
+```bash
+npx skills add robertodraGit/skills --skill '*'
+```
+
+## What is a skill?
+
+A skill is a folder with a `SKILL.md` file: instructions your agent loads **only when the task matches**, plus optional `references/` (deep docs read on demand) and `assets/` (templates). No runtime, no MCP server, no API key — just context, delivered at the right moment.
+
+The `skills` CLI copies the folder into your agent's skills directory (`.claude/skills/`, `.cursor/skills/`, …), so it works offline and travels with the project.
+
+## Repository layout
 
 ```text
-Generate a 2-hour workshop for this project. Language: Italian.
+skills/
+├── ai-act-audit/
+│   ├── SKILL.md                 # entry point, loaded by the agent
+│   ├── references/              # 10 files, EU Commission Guidelines (¶¶ 1–433)
+│   └── assets/report-template.md
+├── project-workshop-generator/
+│   ├── SKILL.md
+│   ├── evals/evals.json
+│   └── references/remotion-template.tsx
+└── docs/launch.md               # promo copy
 ```
 
-Or for the video deck:
-
-```text
-Create a Remotion video presentation based on this project's README and package.json.
-```
-
-## Workshop structure
-
-| Module | Title                 | Audience   | Duration |
-| ------ | --------------------- | ---------- | -------- |
-| 0      | Prerequisites Check   | Everyone   | 10 min   |
-| 1      | Vision & Strategy     | Management | 15 min   |
-| 2      | Technical Deep Dive   | Developers | 30 min   |
-| 3      | Setup & Configuration | Developers | 20 min   |
-| 4      | Usage & Workflow      | All users  | 15 min   |
-| 5      | Labs (🟢🟡🔴)         | Developers | 30 min   |
-
-## Supported agents
-
-Works with any agent supported by skills.sh:
-Cursor · Claude Code · Codex · GitHub Copilot · Gemini CLI · Cline · and more.
-
-## Stack agnostic
-
-The skill detects the stack automatically from project files:
-
-package.json → JS / TS / Node
-requirements.txt / pyproject.toml → Python
-Cargo.toml → Rust
-go.mod → Go
-docker-compose.yml / kubernetes/ → containerized apps
-
-**Never assumes a specific technology** unless confirmed in the repository.
-
-## Files in this skill
-
-```text
-project-workshop-generator/
-├── SKILL.md                   # Core skill instructions
-├── evals/
-│   └── evals.json             # 5 test cases for validation
-└── references/
-    └── remotion-template.tsx  # Animated Remotion slide template
-```
+Each top-level directory is one skill, discovered automatically by the CLI.
 
 ## Contributing
 
-PRs welcome. If you add support for a new stack or language, add a corresponding
-eval in evals/evals.json before submitting.
+See [CONTRIBUTING.md](./CONTRIBUTING.md). New skills, extra language support and evals are welcome.
 
 ## License
 
-MIT
+[MIT](./LICENSE) © Roberto Drago
