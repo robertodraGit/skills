@@ -1,0 +1,82 @@
+{
+  "skill_name": "privacy-audit",
+  "evals": [
+    {
+      "id": 1,
+      "name": "inventory-first",
+      "prompt": "Audit the privacy of this app and fill in the Apple privacy label.",
+      "expected_output": "Builds the data inventory from code and SDKs before any verdict; every SDK found appears in the vendor table; the Apple worksheet is derived from the inventory, not from assumptions.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "name": "sdk-before-consent",
+      "prompt": "We use PostHog and Sentry, initialised at app start. Is that GDPR-compliant?",
+      "expected_output": "Distinguishes GDPR basis from ePrivacy 5(3) device access, classifies PostHog as consent-gated and Sentry as a documented decision, recommends gating initialisation, EU cloud region and IP discard, and cites vendor docs with confidence tags.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "name": "ai-third-party-disclosure",
+      "prompt": "The app sends users' notes to an LLM API. What do we need for privacy and Apple review?",
+      "expected_output": "Cites Apple 5.1.2(i) (disclose third-party AI sharing and get explicit permission before the first send), records the processor/DPA/retention questions, adds User Content to labels, and does not state provider retention behaviour from memory.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "name": "deletion-trace",
+      "prompt": "Check that our delete-account button really deletes everything. We use Supabase, PostHog, RevenueCat and Sign in with Apple.",
+      "expected_output": "Traces deletion through each system (including Supabase storage objects not removed by cascades, PostHog person deletion, RevenueCat subscriber deletion with active store subscriptions still billing, Apple token revocation) and marks each deleted, anonymised, retained-with-reason or gap.",
+      "files": []
+    },
+    {
+      "id": 5,
+      "name": "no-secrets-printed",
+      "prompt": "Audit this repo; the .env has production keys and there is a seed file with real user emails.",
+      "expected_output": "Cites variable names and paths only; never prints key values or real personal data in the report.",
+      "files": []
+    },
+    {
+      "id": 6,
+      "name": "role-and-italy",
+      "prompt": "I build this app for an Italian client who owns the product. What are my obligations and what about minors?",
+      "expected_output": "Identifies the client as controller and the developer as processor (Art. 28 DPA), notes Italian age of digital consent 14 with a verify-on-Garante flag, and keeps legal conclusions conservative.",
+      "files": []
+    },
+    {
+      "id": 7,
+      "name": "omnibus-not-law",
+      "prompt": "Will the Digital Omnibus change our cookie consent requirements?",
+      "expected_output": "States the data/cookie part is a proposal (Council mandate 2026-10-21, Parliament unconfirmed), audits against current law, lists it as a watch item.",
+      "files": []
+    },
+    {
+      "id": 8,
+      "name": "diff-existing-declarations",
+      "prompt": "We already have docs/compliance/store-privacy-declarations.md. Audit our privacy and check the store forms.",
+      "expected_output": "Builds the inventory independently, then diffs the existing declaration document row by row against the Apple and Play worksheets, reporting omissions (e.g. an optional phone number in the policy but missing from the Play form) and category mismatches.",
+      "files": []
+    },
+    {
+      "id": 9,
+      "name": "region-from-pooler-host",
+      "prompt": "Where is our Supabase data hosted? Check from the repo; AGENTS.md has a pooler connection host.",
+      "expected_output": "Infers the region from the pooler host (e.g. aws-1-us-east-2 = US), compares to the privacy policy transfer section, and recommends DPA/SCC evidence and an EU-region option without claiming unverified vendor facts.",
+      "files": []
+    },
+    {
+      "id": 10,
+      "name": "apple-signin-revocation-supabase",
+      "prompt": "We use Supabase auth with Sign in with Apple. Does our delete-account flow satisfy Apple?",
+      "expected_output": "Explains that the identity-token flow keeps no refresh token, so revocation needs the authorization code exchanged and stored server-side; reports a finding when the deletion function has no revoke call; asks to confirm the production flag.",
+      "files": []
+    },
+    {
+      "id": 11,
+      "name": "empty-manifest-collected-types",
+      "prompt": "Our PrivacyInfo.xcprivacy has an empty NSPrivacyCollectedDataTypes but the App Store label lists many types. Is that a rejection?",
+      "expected_output": "States the empty array validates and is not a rejection by itself; reports a yellow consistency finding and shows how to fill it from the worksheet.",
+      "files": []
+    }
+  ]
+}
